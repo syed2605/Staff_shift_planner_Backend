@@ -13,10 +13,20 @@ export const getAllStaff = async (
  skip: number = 0,
  limit: number = 10
 ): Promise<{ staff: IStaff[]; total: number }> => {
-  const staff = await Staff.find(filter)
+  
+const staff = await Staff.find(filter)
+  .populate({
+  path: 'departmentId',
+  select: 'name',
+  })
+  .populate({
+  path: 'roleId',
+  select: 'title',
+  })
   .sort(sortOptions)
   .skip(skip)
-  .limit(limit);
+  .limit(limit)
+  .lean(); 
   const total = await Staff.countDocuments(filter);
   return { staff, total };
 };

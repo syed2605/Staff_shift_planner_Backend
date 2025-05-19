@@ -6,8 +6,8 @@ const staffSchema = new Schema<IStaff>(
   {
     name: { type: String, required: true },
     staffId: { type: String, unique: true, required: true },
-    department: { type: String, required: true },
-    role: { type: String, required: true },
+    departmentId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Department' },
+    roleId: { type: mongoose.Schema.Types.ObjectId, required: true, ref: 'Role' },
     shiftPreference: {
       type: String,
       enum: ['Morning', 'Afternoon', 'Night'],

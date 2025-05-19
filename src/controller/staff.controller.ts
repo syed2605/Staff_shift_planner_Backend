@@ -9,6 +9,8 @@ import { getDynamicFilter, getPagination, getSearchFilter, getSortOptions } from
 export const createStaff = async (req: Request, res: Response) => {
   try {
     const staffData: IStaff = req.body;
+    staffData.roleId = req.body.role;
+    staffData.departmentId = req.body.department;
     const staff = await staffService.createStaff(staffData);
     return successResponse(res, staff, MESSAGES.STAFF_CREATED_SUCESSFULLY, STATUS_CODES.OK);
   } catch (err: any) {
