@@ -8,6 +8,8 @@ export interface IStaff extends Document {
   roleId: Types.ObjectId;
   shiftPreference: 'Morning' | 'Afternoon' | 'Night';
   contact: string;
+  createdAt?: Date;
+  updatedAt?: Date;
   createdBy?: Types.ObjectId;
   updatedBy?: Types.ObjectId;
 }
