@@ -1,22 +1,24 @@
-// controllers/staff.controller.ts
+import { MESSAGES } from './../constants/errorMessages';
 import { Request, Response } from 'express';
 import * as staffService from '../service/staff.service';
-import { IStaff } from '../models/staff.model';
+import { IStaff } from '../interface/model.interface';
+import { errorResponse, successResponse } from '../utils/response.utils';
+import { STATUS_CODES } from './../constants/statusCodes';
 
 export const createStaff = async (req: Request, res: Response) => {
   try {
     const staffData: IStaff = req.body;
     const staff = await staffService.createStaff(staffData);
-    res.status(201).json(staff);
+    return successResponse(res, staff, MESSAGES.STAFF_CREATED_SUCESSFULLY, STATUS_CODES.OK);
   } catch (err: any) {
-    res.status(400).json({ error: err.message });
+    return errorResponse(res, err, MESSAGES.STAFF_CREATION_FAILED, STATUS_CODES.BAD_REQUEST);
   }
 };
 
 export const getAllStaff = async (req: Request, res: Response) => {
   try {
     const staff = await staffService.getAllStaff();
-    res.json(staff);
+    return successResponse(res, staff, MESSAGES.STAFF_FETCHED_SUCCESSFULLY, STATUS_CODES.OK);
   } catch (err: any) {
     res.status(500).json({ error: err.message });
   }

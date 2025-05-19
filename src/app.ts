@@ -4,7 +4,7 @@ import cookieParser from "cookie-parser";
 import helmet from 'helmet';
 import logger from './config/logger';
 import limiter from './config/rateLimitter';
-import userRouter from './routes/user.route'
+import staffRoutes from './route/staff.routes';
 
 const app = express();
 

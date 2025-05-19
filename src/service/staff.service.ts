@@ -1,4 +1,6 @@
-import Staff, { IStaff } from '../models/staff.model';
+import Staff from '../models/staff.model';
+import { IStaff } from '../interface/model.interface';
+
 
 export const createStaff = async (staffData: IStaff): Promise<IStaff> => {
   const staff = await Staff.create(staffData);
