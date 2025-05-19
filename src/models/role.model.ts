@@ -5,7 +5,7 @@ import type { IRole } from '../interface/model.interface';
 const roleSchema = new Schema<IRole>(
   {
     title: { type: String, required: true, unique: true },
-    permissions: [{ type: String }],
+    description: { type: String },
     ...commonSchemaFields,
   },
   schemaOptions

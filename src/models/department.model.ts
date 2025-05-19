@@ -6,7 +6,7 @@ const departmentSchema = new Schema<IDepartment>(
   {
     name: { type: String, required: true, unique: true },
     description: { type: String },
-    isActive: {type: Boolean, required: true},
+    isActive: { type: Boolean, required: true, default: false },
     ...commonSchemaFields,
   },
   schemaOptions

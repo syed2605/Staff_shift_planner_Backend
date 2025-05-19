@@ -19,5 +19,5 @@ export interface IDepartment extends Document {
 
 export interface IRole extends Document {
   title: string;
-  permissions?: string[];
+  description?: string;
 }

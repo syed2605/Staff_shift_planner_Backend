@@ -5,6 +5,8 @@ import helmet from 'helmet';
 import logger from './config/logger';
 import limiter from './config/rateLimitter';
 import staffRoutes from './route/staff.routes';
+import departmentRoutes from './route/department.route';
+import roleRoutes from './route/role.route';
 
   const app = express();
 
@@ -23,6 +25,7 @@ import staffRoutes from './route/staff.routes';
   });
 
   app.use('/api/staff', staffRoutes);
-
+  app.use('/api/department', departmentRoutes);
+  app.use('/api/role', roleRoutes);
 
   export default app;
