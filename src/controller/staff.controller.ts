@@ -20,6 +20,6 @@ export const getAllStaff = async (req: Request, res: Response) => {
     const staff = await staffService.getAllStaff();
     return successResponse(res, staff, MESSAGES.STAFF_FETCHED_SUCCESSFULLY, STATUS_CODES.OK);
   } catch (err: any) {
-    res.status(500).json({ error: err.message });
+    return errorResponse(res, err, MESSAGES.STAFF_FETCH_FAILED, STATUS_CODES.INTERNAL_ERROR);
   }
 };

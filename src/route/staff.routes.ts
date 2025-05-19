@@ -1,8 +1,11 @@
 import express from 'express';
-const router = express.Router();
 import * as staffController from '../controller/staff.controller';
+import { validateBody } from '../middleware/validate';
+import { staffCreateSchema } from '../validators/staff.validator';
 
-router.post('/', staffController.createStaff);
+const router = express.Router();
+
+router.post('/', validateBody(staffCreateSchema), staffController.createStaff);
 router.get('/', staffController.getAllStaff);
 
 export default router;
