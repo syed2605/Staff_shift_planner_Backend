@@ -1,9 +1,11 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import cors from "./config/cors";
 import cookieParser from "cookie-parser";
 import helmet from 'helmet';
 import logger from './config/logger';
 import limiter from './config/rateLimitter';
+import userRouter from './routes/user.route'
+
 const app = express();
 
 app.use(cors);
@@ -20,5 +22,5 @@ app.get('/', (req: Request, res: Response) => {
     res.send(`Server running on http://localhost:3000`);
 });
 
-
+app.use('/api/staff', staffRoutes);
 export default app;
