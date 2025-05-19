@@ -11,7 +11,7 @@ scanner(
       'sonar.sourceEncoding': 'UTF-8',
       'sonar.javascript.tsconfigPath': 'tsconfig.json',
       // 'sonar.login': 'sqa_fb23538d038f9a10663ecc948fcbd8bbf4e969d0',
-      'sonar.login': 'sqa_d1ac6fb59cb0f544d3f2db319af4ae09ea5b1cfa',
+      'sonar.token': 'sqa_d1ac6fb59cb0f544d3f2db319af4ae09ea5b1cfa',
     },
   },
   () => process.exit()
